@@ -1,0 +1,58 @@
+<div class="container">
+    <div style=" text-align: center;">
+      <h1>Cuenta</h1>
+    </div>
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Id</mat-label>
+        <input matInput placeholder="Id" [(ngModel)]="cuenta.idCuenta">
+      </mat-form-field>
+    
+      <br>
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput required placeholder="nombre" [(ngModel)]="cuenta.nombreCuenta">
+    
+      </mat-form-field>
+    
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Contrasena</mat-label>
+        <input matInput required placeholder="contrasena" [(ngModel)]="cuenta.contrasenaCuenta">
+      </mat-form-field>
+    
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Correo</mat-label>
+        <input matInput required placeholder="correo" [(ngModel)]="cuenta.correoCuenta">
+      </mat-form-field>
+  
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Numero</mat-label>
+        <input matInput required placeholder="numero" [(ngModel)]="cuenta.numeroCuenta">
+      </mat-form-field>
+  
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Direccion</mat-label>
+        <input matInput required placeholder="direccion" [(ngModel)]="cuenta.direccionCuenta">
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill">
+      <mat-label>Seleccione Distrito</mat-label>
+      <mat-select [(value)]="idDistritoSeleccionado" required>
+          <mat-option *ngFor="let d of listaDistritos" [value]="d.idDistrito">
+              {{d.nombreDistrito}}
+          </mat-option>
+      </mat-select>
+      </mat-form-field>
+    
+      <br>
+      <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+      <button mat-raised-button color="warn" routerLink="/cuenta">Cancelar</button>
+      <p>{{mensaje}}</p>
+    
+    </div>

@@ -1,0 +1,90 @@
+<div class="container">
+
+    <h1>Objeto</h1>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="Id" [(ngModel)]="objeto.idObjeto">
+    </mat-form-field>
+  
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput required placeholder="nombre" [(ngModel)]="objeto.nombreObjeto">
+    </mat-form-field>
+
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Distancia</mat-label>
+      <input matInput required placeholder="distancia" [(ngModel)]="objeto.distancia">
+    </mat-form-field>
+
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>distancia Limite</mat-label>
+      <input matInput required placeholder="distanciaLimite" [(ngModel)]="objeto.distanciaLimite">
+    </mat-form-field>
+
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Ubicacion</mat-label>
+      <input matInput required placeholder="ubicacion" [(ngModel)]="objeto.ubicacion">
+    </mat-form-field>
+
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Fecha</mat-label>
+      <input matInput required placeholder="fechaRegistrado" [(ngModel)]="objeto.fechaRegistrado">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+    <mat-label>Seleccione Cuenta</mat-label>
+    <mat-select [(value)]="idCuentaSeleccionado" required>
+        <mat-option *ngFor="let cu of listaCuentas" [value]="cu.idCuenta">
+            {{cu.nombreCuenta}}
+        </mat-option>
+    </mat-select>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+    <mat-label>Seleccione Recordatorio</mat-label>
+    <mat-select [(value)]="idRecordatorioSeleccionado" required>
+        <mat-option *ngFor="let re of listaRecordatorios" [value]="re.idRecordatorio">
+            {{re.estadoRecordatorio}}
+        </mat-option>
+    </mat-select>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+    <mat-label>Seleccione Categoria Objeto</mat-label>
+    <mat-select [(value)]="idCategoriaObjetoSeleccionado" required>
+        <mat-option *ngFor="let ca of listaCategoriaObjeto" [value]="ca.idCategoriaObjeto">
+            {{ca.nombreCategoriaObjeto}}
+        </mat-option>
+    </mat-select>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+    <mat-label>Seleccione Estado Objeto</mat-label>
+    <mat-select [(value)]="idEstadoObjetoSeleccionado" required>
+        <mat-option *ngFor="let es of listaEstadoObjeto" [value]="es.idEstadoObjeto">
+            {{es.nombreEstadoObjeto}}
+        </mat-option>
+    </mat-select>
+    </mat-form-field>
+
+    <br>
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/objeto">Cancelar</button>
+    <p>{{mensaje1}}</p>
+  
+  </div>

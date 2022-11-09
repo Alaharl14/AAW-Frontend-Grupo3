@@ -1,0 +1,8 @@
+menu {
+    width: 30%; padding: 4px; padding-left: 16 px; padding-top: 8px;
+}
+
+.menu-toolbar {
+    background-color:rgb(10, 194, 149,1);
+    padding:15px;
+}

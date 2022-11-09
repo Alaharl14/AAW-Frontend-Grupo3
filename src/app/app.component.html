@@ -1,0 +1,17 @@
+<mat-toolbar id="navegador" class="menu-toolbar">
+  <div>
+    <span style="color:rgb(255, 255, 255)" ></span>
+    <a>Fi-Things</a>
+  </div>
+  <a mat-raised-button [routerLink]="['/','ciudad']" style="margin-left:auto;">Ciudad</a>
+  <a mat-raised-button [routerLink]="['/','distrito']" style="margin-left:10px;">Distrito</a>
+  <a mat-raised-button [routerLink]="['/','cuenta']" style="margin-left:10px;">Cuenta</a>
+  <a mat-raised-button [routerLink]="['/','estadoobjeto']" style="margin-left: 10px;">Estado Objeto</a>
+  <a mat-raised-button [routerLink]="['/','recordatorio']" style="margin-left: 10px;">Recordatorio</a>
+  <a mat-raised-button [routerLink]="['/','categoriaobjeto']" style="margin-left: 10px;">Categoria Objeto</a>
+  <a mat-raised-button [routerLink]="['/','objeto']" style="margin-left: 10px;">Objeto</a>
+  <a mat-raised-button [routerLink]="['/','reporte']" style="margin-left: 10px;">Reporte</a>
+  <a mat-raised-button [routerLink]="['/','estadoreporte']" style="margin-left: 10px;">Estado Reporte</a>
+  <a style="margin-left: 10px;"></a>
+</mat-toolbar>
+<router-outlet></router-outlet>

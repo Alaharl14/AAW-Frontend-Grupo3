@@ -1,0 +1,23 @@
+<div class="container">
+
+    <h1>Estado Objeto</h1>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="Id" [(ngModel)]="estadoobjeto.idEstadoObjeto">
+    </mat-form-field>
+  
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput required placeholder="nombre" [(ngModel)]="estadoobjeto.nombreEstadoObjeto">
+  
+    </mat-form-field>
+
+    <br>
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="accent" routerLink="/estadoobjeto">Cancelar</button>
+    <p>{{mensaje}}</p>
+  
+  </div>

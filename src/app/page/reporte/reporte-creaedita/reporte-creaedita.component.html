@@ -1,0 +1,52 @@
+<div class="container">
+
+    <h1>Reporte</h1>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="Id" [(ngModel)]="reporte.idReporte">
+    </mat-form-field>
+  
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput required placeholder="nombre" [(ngModel)]="reporte.nombreReporte">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Descripcion</mat-label>
+      <input matInput required placeholder="descripcion" [(ngModel)]="reporte.descripcionReporte">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Fecha</mat-label>
+      <input matInput required placeholder="fecha" [(ngModel)]="reporte.fechaReporte">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+    <mat-label>Seleccione Objeto</mat-label>
+    <mat-select [(value)]="idObjetoSeleccionado" required>
+        <mat-option *ngFor="let ob of listaObjetos" [value]="ob.idObjeto">
+            {{ob.nombreObjeto}}
+        </mat-option>
+    </mat-select>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field appearance="fill">
+    <mat-label>Seleccione Estado Reporte</mat-label>
+    <mat-select [(value)]="idEstadoReporteSeleccionado" required>
+        <mat-option *ngFor="let est of listaEstadoReporte" [value]="est.idEstadoReporte">
+            {{est.nombreEstadoReporte}}
+        </mat-option>
+    </mat-select>
+    </mat-form-field>
+  
+    <br>
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/reporte">Cancelar</button>
+    <p>{{mensaje1}}</p>
+  
+  </div>

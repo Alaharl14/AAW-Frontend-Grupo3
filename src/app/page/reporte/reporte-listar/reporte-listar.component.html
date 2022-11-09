@@ -1,0 +1,57 @@
+<div class="container">
+    <div style=" text-align: center;">
+      <h1>Lista de Reportes</h1>
+    </div>
+    <app-reporte-buscar></app-reporte-buscar>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" border="5" >
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.idReporte}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombreReporte}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+        <td mat-cell *matCellDef="let element"> {{element.descripcionReporte}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.fechaReporte}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="objeto">
+        <th mat-header-cell *matHeaderCellDef> Objeto </th>
+        <td mat-cell *matCellDef="let element"> {{element.objeto.nombreObjeto}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef> Estado Reporte </th>
+        <td mat-cell *matCellDef="let element"> {{element.estadoreporte.nombreEstadoReporte}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef > Acciones </th>
+        <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" style="margin-left: 22%;"
+            [routerLink]="['edicion', element?.idReporte]">Actualizar</button>
+            <button mat-raised-button color="accent" (click)="confirmar(element.idReporte)" style="margin-left: 22%;">Eliminar</button>
+        </td>
+        
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <div class="example-button-container">
+  
+      <button mat-stroked-button color="primary" aria-label="Example icon button with a plus one icon"
+        routerLink="/reporte/agregar">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>

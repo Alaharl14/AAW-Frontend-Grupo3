@@ -1,0 +1,77 @@
+<div class="container">
+    <div style=" text-align: center;">
+      <h1>Lista de objetos</h1>
+    </div>
+    <app-objeto-buscar></app-objeto-buscar>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" border="5" >
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.idObjeto}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombreObjeto}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="distancia">
+        <th mat-header-cell *matHeaderCellDef> Distancia </th>
+        <td mat-cell *matCellDef="let element"> {{element.distancia}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="distanciaLimite">
+        <th mat-header-cell *matHeaderCellDef> Distancia Limite </th>
+        <td mat-cell *matCellDef="let element"> {{element.distanciaLimite}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ubicacion">
+        <th mat-header-cell *matHeaderCellDef> Ubicacion </th>
+        <td mat-cell *matCellDef="let element"> {{element.ubicacion}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.fechaRegistrado}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cuenta">
+        <th mat-header-cell *matHeaderCellDef> Cuenta </th>
+        <td mat-cell *matCellDef="let element"> {{element.cuenta.nombreCuenta}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="recordatorio">
+        <th mat-header-cell *matHeaderCellDef> Recordatorio</th>
+        <td mat-cell *matCellDef="let element"> {{element.recordatorio.estadoRecordatorio}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="categoria">
+        <th mat-header-cell *matHeaderCellDef> Categoria </th>
+        <td mat-cell *matCellDef="let element"> {{element.categoriaObjeto.nombreCategoriaObjeto}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef> Estado </th>
+        <td mat-cell *matCellDef="let element"> {{element.estadoObjeto.nombreEstadoObjeto}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef > Acciones </th>
+        <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" style="margin-left: 22%;"
+            [routerLink]="['edicion', element?.idObjeto]">Actualizar</button>
+            <button mat-raised-button color="accent" (click)="confirmar(element.idObjeto)" style="margin-left: 22%;">Eliminar</button>
+        </td>
+        
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <div class="example-button-container">
+  
+      <button mat-stroked-button color="primary" aria-label="Example icon button with a plus one icon"
+        routerLink="/objeto/agregar">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
