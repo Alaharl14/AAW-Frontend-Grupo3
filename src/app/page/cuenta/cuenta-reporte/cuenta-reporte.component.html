@@ -1,0 +1,30 @@
+<div class="container">
+    <div style=" text-align: center;">
+      <br>
+      <h1>Reporte de cuentas con mas de 3 objetos</h1>
+    </div>
+    <div style=" text-align: center;">
+        <br>
+        <a mat-raised-button [routerLink]="['/','cuenta']" style="margin-left:auto;">Volver</a>
+      </div>
+<br>
+    <div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" border="5" >
+
+
+        <ng-container matColumnDef="nombre_cuenta">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre_cuenta}} </td>
+        </ng-container>         
+      
+        <ng-container matColumnDef="cantidad">
+          <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+          <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+

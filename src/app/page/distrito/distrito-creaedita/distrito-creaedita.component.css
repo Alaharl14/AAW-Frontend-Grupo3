@@ -1,9 +1,26 @@
 .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+div {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.example-full-width {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.example-full-width2 {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.buttons{
+margin-left: 15%;
+margin-right: 1%;  
+}

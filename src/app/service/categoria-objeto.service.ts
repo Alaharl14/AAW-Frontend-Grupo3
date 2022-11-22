@@ -7,7 +7,7 @@ import { CategoriaObjeto } from '../model/categoriaObjeto';
   providedIn: 'root'
 })
 export class CategoriaObjetoService {
-  url: string = "http://localhost:8080/categoriaobjeto"
+  private url: string = "http://localhost:8080/categoriaobjeto"
   private listaCambio = new Subject<CategoriaObjeto[]>()
   private confirmaEliminacion = new Subject<Boolean>()
   constructor(private http: HttpClient) { }

@@ -7,7 +7,7 @@ import { EstadoObjeto } from '../model/estadoObjeto';
   providedIn: 'root'
 })
 export class EstadoObjetoService {
-  url: string = "http://localhost:8080/estadoobjeto"
+  private url: string = "http://localhost:8080/estadoobjeto"
   private listaCambio = new Subject<EstadoObjeto[]>()
   private confirmaEliminacion = new Subject<Boolean>()
   constructor(private http: HttpClient) { }

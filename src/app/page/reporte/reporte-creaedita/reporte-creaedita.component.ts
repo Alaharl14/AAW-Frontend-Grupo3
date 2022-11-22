@@ -6,6 +6,7 @@ import { Objeto } from 'src/app/model/objeto';
 import { ObjetoService } from 'src/app/service/objeto.service';
 import { EstadoReporte } from 'src/app/model/estadoReporte';
 import { EstadoReporteService } from 'src/app/service/estado-reporte.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-reporte-creaedita',
@@ -22,6 +23,10 @@ export class ReporteCreaeditaComponent implements OnInit {
   idEstadoReporteSeleccionado: number = 0;
   id: number = 0;
   mensaje1: string = "";
+  fechaSeleccionada: Date = moment().add(-0, 'days').toDate();
+  maxFecha: Date = moment().add(-0, 'days').toDate();
+  minFecha: Date = moment().subtract(-0, 'days').toDate();
+
   constructor(private reporteService: ReporteService,private router: Router,
     private route: ActivatedRoute,
     private objetoService: ObjetoService,
@@ -39,8 +44,7 @@ export class ReporteCreaeditaComponent implements OnInit {
 
     aceptar(): void {
       if (this.reporte.nombreReporte.length > 0 && 
-        this.reporte.descripcionReporte.length>0 && 
-        this.reporte.fechaReporte.length>0 && 
+        this.reporte.descripcionReporte.length>0 &&  
         this.idObjetoSeleccionado>0 && 
         this.idEstadoReporteSeleccionado>0 ) { 
           let ob = new Objeto();
@@ -50,6 +54,7 @@ export class ReporteCreaeditaComponent implements OnInit {
          let est = new EstadoReporte();
          est.idEstadoReporte = this.idEstadoReporteSeleccionado;
          this.reporte.estadoreporte = est; 
+         this.reporte.fechaReporte = moment(this.fechaSeleccionada).format('YYYY-MM-DDTHH:mm:ss');
         if (this.edicion) {
           this.reporteService.modificar(this.reporte).subscribe(() => {
             this.reporteService.listar().subscribe(data => {

@@ -9,6 +9,7 @@ import { ReporteService } from 'src/app/service/reporte.service';
 })
 export class ReporteBuscarComponent implements OnInit {
   textoBuscar: string = ""
+
   constructor(private reporteService: ReporteService) { }
 
   ngOnInit(): void {
@@ -24,6 +25,12 @@ export class ReporteBuscarComponent implements OnInit {
       });
       this.reporteService.setLista(array);
     })
+
+    /* buscar(e: any)  /* buscar en BD
+    this.propietarioService.buscar(e.target.value).subscribe(data=>{
+      this.propietarioService.setLista(data);
+    });
+    */
   }
 
 }

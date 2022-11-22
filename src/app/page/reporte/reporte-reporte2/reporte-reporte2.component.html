@@ -1,21 +1,12 @@
 <div class="container">
     <div style=" text-align: center;">
       <br>
-      <h1>Lista de Reportes</h1>
-    </div>
-    <app-reporte-buscar></app-reporte-buscar>
-
-    <div class="example-button-container">
-      <button mat-stroked-button color="primary" aria-label="Example icon button with a plus one icon"
-        routerLink="/reporte/agregar">
-        <mat-icon>add</mat-icon>
-      </button>
+      <h1>Reportes que se han tomado para resolver</h1>
     </div>
     <div style=" text-align: center;">
-      <a mat-raised-button [routerLink]="['/','reporte','reportes']" style="margin-left:auto;">Reporte de los ultimos 15 dias</a>
-      <a mat-raised-button [routerLink]="['/','reporte','reportes2']" style="margin-left:auto;">Reportes que se han tomado para resolver</a>
+      <br>
+      <a mat-raised-button [routerLink]="['/','reporte']" style="margin-left:auto;">Volver</a>
     </div>
-    
 <br>
     <div>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" border="5" >
@@ -48,15 +39,6 @@
         <ng-container matColumnDef="estado">
           <th mat-header-cell *matHeaderCellDef> Estado Reporte </th>
           <td mat-cell *matCellDef="let element"> {{element.estadoreporte.nombreEstadoReporte}} </td>
-        </ng-container>
-      
-        <ng-container matColumnDef="acciones">
-          <th mat-header-cell *matHeaderCellDef > Acciones </th>
-          <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" style="margin-left: 22%;"
-              [routerLink]="['edicion', element?.idReporte]">Actualizar</button>
-              <button mat-raised-button color="accent" (click)="confirmar(element.idReporte)" style="margin-left: 22%;">Eliminar</button>
-          </td>
-          
         </ng-container>
   
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

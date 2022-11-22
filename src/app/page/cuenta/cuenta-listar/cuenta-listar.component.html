@@ -1,64 +1,72 @@
 <div class="container">
     <div style=" text-align: center;">
+      <br>
       <h1>Lista de cuentas</h1>
     </div>
     <app-cuenta-buscar></app-cuenta-buscar>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" border="5" >
+    <div class="example-button-container">
+  
+      <button mat-stroked-button color="primary" aria-label="Example icon button with a plus one icon"
+        routerLink="/cuenta/agregar">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <div style=" text-align: center;">
+      <br>
+      <a mat-raised-button [routerLink]="['/','cuenta','reportes']" style="margin-left:auto;">Reporte de cuentas con mas de 3 objetos</a>
+    </div>
+<br>
+    <div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" border="5" >
 
 
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let element"> {{element.idCuenta}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="nombre">
-      <th mat-header-cell *matHeaderCellDef> Nombre </th>
-      <td mat-cell *matCellDef="let element"> {{element.nombreCuenta}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="contrasena">
-      <th mat-header-cell *matHeaderCellDef> Contrasena </th>
-      <td mat-cell *matCellDef="let element"> {{element.contrasenaCuenta}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="correo">
-      <th mat-header-cell *matHeaderCellDef> Correo </th>
-      <td mat-cell *matCellDef="let element"> {{element.correoCuenta}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="numero">
-      <th mat-header-cell *matHeaderCellDef> Numero </th>
-      <td mat-cell *matCellDef="let element"> {{element.numeroCuenta}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="direccion">
-      <th mat-header-cell *matHeaderCellDef> Direccion </th>
-      <td mat-cell *matCellDef="let element"> {{element.direccionCuenta}} </td>
-    </ng-container>
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.idCuenta}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombreCuenta}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="contrasena">
+          <th mat-header-cell *matHeaderCellDef> Contrasena </th>
+          <td mat-cell *matCellDef="let element"> {{element.contrasenaCuenta}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="correo">
+          <th mat-header-cell *matHeaderCellDef> Correo </th>
+          <td mat-cell *matCellDef="let element"> {{element.correoCuenta}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="numero">
+          <th mat-header-cell *matHeaderCellDef> Numero </th>
+          <td mat-cell *matCellDef="let element"> {{element.numeroCuenta}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="direccion">
+          <th mat-header-cell *matHeaderCellDef> Direccion </th>
+          <td mat-cell *matCellDef="let element"> {{element.direccionCuenta}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="distrito">
+          <th mat-header-cell *matHeaderCellDef> Distrito </th>
+          <td mat-cell *matCellDef="let element"> {{element.distrito.nombreDistrito}} </td>
+      </ng-container>
+    
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef > Acciones </th>
+          <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" style="margin-left: 22%;"
+              [routerLink]="['edicion', element?.idCuenta]">Actualizar</button>
+              <button mat-raised-button color="accent" (click)="confirmar(element.idCuenta)" style="margin-left: 22%;">
+                Eliminar</button>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
 
-    <ng-container matColumnDef="distrito">
-      <th mat-header-cell *matHeaderCellDef> Distrito </th>
-      <td mat-cell *matCellDef="let element"> {{element.distrito.nombreDistrito}} </td>
-  </ng-container>
-
-    <ng-container matColumnDef="acciones">
-      <th mat-header-cell *matHeaderCellDef > Acciones </th>
-      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" style="margin-left: 22%;"
-          [routerLink]="['edicion', element?.idCuenta]">Actualizar</button>
-          <button mat-raised-button color="accent" (click)="confirmar(element.idCuenta)" style="margin-left: 22%;">
-            Eliminar</button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
-  <div class="example-button-container">
-  
-    <button mat-stroked-button color="primary" aria-label="Example icon button with a plus one icon"
-      routerLink="/cuenta/agregar">
-      <mat-icon>add</mat-icon>
-    </button>
-  </div>

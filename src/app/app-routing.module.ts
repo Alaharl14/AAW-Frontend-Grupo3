@@ -1,3 +1,7 @@
+import { CuentaReporteComponent } from './page/cuenta/cuenta-reporte/cuenta-reporte.component';
+import { ReporteReporte2Component } from './page/reporte/reporte-reporte2/reporte-reporte2.component';
+import { ObjetoReporteComponent } from './page/objeto/objeto-reporte/objeto-reporte.component';
+import { ReporteReporteComponent } from './page/reporte/reporte-reporte/reporte-reporte.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CuentaComponent } from './page/cuenta/cuenta.component';
@@ -24,7 +28,8 @@ const routes: Routes = [
   {
     path: 'cuenta', component: CuentaComponent, children:[
       { path: 'agregar', component: CuentaCreaeditaComponent },
-      { path: 'edicion/:id', component: CuentaCreaeditaComponent }
+      { path: 'edicion/:id', component: CuentaCreaeditaComponent },
+      { path: 'reportes', component: CuentaReporteComponent },
     ]
   },
   {
@@ -66,13 +71,16 @@ const routes: Routes = [
   {
     path: 'reporte', component: ReporteComponent, children:[
       { path: 'agregar', component: ReporteCreaeditaComponent },
-      { path: 'edicion/:id', component: ReporteCreaeditaComponent }
+      { path: 'edicion/:id', component: ReporteCreaeditaComponent },
+      { path: 'reportes', component: ReporteReporteComponent },
+      { path: 'reportes2', component: ReporteReporte2Component }
     ]
   },
   {
     path: 'objeto', component: ObjetoComponent, children:[
       { path: 'agregar', component: ObjetoCreaeditaComponent },
-      { path: 'edicion/:id', component: ObjetoCreaeditaComponent }
+      { path: 'edicion/:id', component: ObjetoCreaeditaComponent },
+      { path: 'reportes', component: ObjetoReporteComponent}
     ]
   },
 

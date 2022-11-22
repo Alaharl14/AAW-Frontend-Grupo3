@@ -65,6 +65,15 @@ import { ObjetoDialogoComponent } from './page/objeto/objeto-listar/objeto-dialo
 import { ObjetoCreaeditaComponent } from './page/objeto/objeto-creaedita/objeto-creaedita.component';
 import { ObjetoBuscarComponent } from './page/objeto/objeto-buscar/objeto-buscar.component';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {ReactiveFormsModule} from '@angular/forms';
+import { ReporteReporteComponent } from './page/reporte/reporte-reporte/reporte-reporte.component';
+import { ObjetoReporteComponent } from './page/objeto/objeto-reporte/objeto-reporte.component';
+import { ReporteReporte2Component } from './page/reporte/reporte-reporte2/reporte-reporte2.component';
+import { CuentaReporteComponent } from './page/cuenta/cuenta-reporte/cuenta-reporte.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -112,7 +121,11 @@ import { ObjetoBuscarComponent } from './page/objeto/objeto-buscar/objeto-buscar
     ObjetoListarComponent,
     ObjetoDialogoComponent,
     ObjetoCreaeditaComponent,
-    ObjetoBuscarComponent
+    ObjetoBuscarComponent,
+    ReporteReporteComponent,
+    ObjetoReporteComponent,
+    ReporteReporte2Component,
+    CuentaReporteComponent,
   ],
   imports: [
     BrowserModule,
@@ -130,7 +143,9 @@ import { ObjetoBuscarComponent } from './page/objeto/objeto-buscar/objeto-buscar
     MatPaginatorModule,
     MatCardModule,
     MatDividerModule,
-
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

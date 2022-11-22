@@ -1,0 +1,13 @@
+table{ 
+    text-align: center;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  .mat-stroked-button{
+    margin-left: 15%;
+    zoom: 125%;
+  }
+  .mat-header-cell {
+    text-align: center; 
+  }

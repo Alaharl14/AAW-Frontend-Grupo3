@@ -1,3 +1,4 @@
+import { DateAdapter } from '@angular/material/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ObjetoService } from 'src/app/service/objeto.service';
@@ -10,6 +11,7 @@ import { CategoriaObjeto } from 'src/app/model/categoriaObjeto';
 import { CategoriaObjetoService } from 'src/app/service/categoria-objeto.service';
 import { EstadoObjeto } from 'src/app/model/estadoObjeto';
 import { EstadoObjetoService } from 'src/app/service/estado-objeto.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-objeto-creaedita',
@@ -30,6 +32,9 @@ export class ObjetoCreaeditaComponent implements OnInit {
   idEstadoObjetoSeleccionado: number = 0;
   id: number = 0;
   mensaje1: string = "";
+  fechaSeleccionada: Date = moment().add(-0, 'days').toDate();
+  maxFecha: Date = moment().add(-0, 'days').toDate();
+  minFecha: Date = moment().subtract(-0, 'days').toDate();
 
   constructor(private objetoService: ObjetoService,private router: Router,
     private route: ActivatedRoute,private cuentaService: CuentaService,
@@ -47,6 +52,7 @@ export class ObjetoCreaeditaComponent implements OnInit {
       this.recordatorioService.listar().subscribe(data => { this.listaRecordatorios = data });
       this.categoriaobjetoService.listar().subscribe(data => { this.listaCategoriaObjeto = data });
       this.estadoobjetoService.listar().subscribe(data => { this.listaEstadoObjeto = data });
+      
     }
 
     aceptar(): void {
@@ -54,7 +60,6 @@ export class ObjetoCreaeditaComponent implements OnInit {
         this.objeto.distancia.length>0 &&
         this.objeto.distanciaLimite.length>0 &&
         this.objeto.ubicacion.length>0 &&
-        this.objeto.fechaRegistrado.length>0 && 
         this.idCuentaSeleccionado>0 && 
         this.idRecordatorioSeleccionado>0 && 
         this.idCategoriaObjetoSeleccionado>0 && 
@@ -75,6 +80,8 @@ export class ObjetoCreaeditaComponent implements OnInit {
         let es = new EstadoObjeto();
         es.idEstadoObjeto = this.idEstadoObjetoSeleccionado;
         this.objeto.estadoObjeto = es;  
+        this.objeto.fechaRegistrado = moment(this.fechaSeleccionada).format('YYYY-MM-DDTHH:mm:ss');
+;
         if (this.edicion) {
           this.objetoService.modificar(this.objeto).subscribe(() => {
             this.objetoService.listar().subscribe(data => {

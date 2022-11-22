@@ -7,7 +7,7 @@ import { Reporte } from '../model/reporte';
   providedIn: 'root'
 })
 export class ReporteService {
-  url: string = "http://localhost:8080/reporte"
+  private url: string = "http://localhost:8080/reporte"
   private listaCambio = new Subject<Reporte[]>()
   private confirmaEliminacion = new Subject<Boolean>()
   constructor(private http: HttpClient) { }
@@ -32,8 +32,23 @@ export class ReporteService {
   }
 
   buscar(texto:string) {
-
     return this.http.post<Reporte[]>(`${this.url}/buscar`, texto);
+  }
+
+  buscar1(texto:string) {
+    console.log("algo")
+  if (texto.length != 0) {
+   return this.http.post<Reporte[]>(`${this.url}/buscar`, texto.toLowerCase());
+  }
+    return EMPTY;
+  }
+
+  reporte(){
+    return this.http.get<Reporte[]>(`${this.url}/buscarultimosdias`);
+  }
+
+  reporte2(){
+    return this.http.get<Reporte[]>(`${this.url}/reportetomado`);
   }
 
   listarId(id: number) {

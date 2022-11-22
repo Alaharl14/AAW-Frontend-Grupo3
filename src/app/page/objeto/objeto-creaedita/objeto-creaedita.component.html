@@ -1,46 +1,52 @@
 <div class="container">
-
+<br>
     <h1>Objeto</h1>
   
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <mat-label>Id</mat-label>
       <input matInput placeholder="Id" [(ngModel)]="objeto.idObjeto">
     </mat-form-field>
   
     <br>
   
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <mat-label>Nombre</mat-label>
       <input matInput required placeholder="nombre" [(ngModel)]="objeto.nombreObjeto">
     </mat-form-field>
 
     <br>
   
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <mat-label>Distancia</mat-label>
       <input matInput required placeholder="distancia" [(ngModel)]="objeto.distancia">
     </mat-form-field>
 
     <br>
   
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <mat-label>distancia Limite</mat-label>
       <input matInput required placeholder="distanciaLimite" [(ngModel)]="objeto.distanciaLimite">
     </mat-form-field>
 
     <br>
   
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <mat-label>Ubicacion</mat-label>
       <input matInput required placeholder="ubicacion" [(ngModel)]="objeto.ubicacion">
     </mat-form-field>
 
     <br>
-  
-    <mat-form-field class="example-full-width">
+
+    <mat-form-field appearance="fill">
       <mat-label>Fecha</mat-label>
-      <input matInput required placeholder="fechaRegistrado" [(ngModel)]="objeto.fechaRegistrado">
-    </mat-form-field>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="fechaSeleccionada">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field >
+    
+
+
+
 
     <br>
     <mat-form-field appearance="fill">

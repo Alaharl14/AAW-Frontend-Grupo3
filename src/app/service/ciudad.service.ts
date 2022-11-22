@@ -7,7 +7,7 @@ import { Ciudad } from '../model/ciudad';
   providedIn: 'root'
 })
 export class CiudadService {
-  url: string = "http://localhost:8080/ciudad"
+  private url: string = "http://localhost:8080/ciudad"
   private listaCambio = new Subject<Ciudad[]>()
   private confirmaEliminacion = new Subject<Boolean>()
   constructor(private http: HttpClient) { }

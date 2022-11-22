@@ -7,7 +7,7 @@ import { Recordatorio } from '../model/recordatorio';
   providedIn: 'root'
 })
 export class RecordatorioService {
-  url: string = "http://localhost:8080/recordatorio"
+  private url: string = "http://localhost:8080/recordatorio"
   private listaCambio = new Subject<Recordatorio[]>()
   private confirmaEliminacion = new Subject<Boolean>()
   constructor(private http: HttpClient) { }

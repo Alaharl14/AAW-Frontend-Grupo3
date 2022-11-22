@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EMPTY, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Objeto } from '../model/objeto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ObjetoService {
-  url: string = "http://localhost:8080/objeto"
+  private url: string = "http://localhost:8080/objeto"
   private listaCambio = new Subject<Objeto[]>()
   private confirmaEliminacion = new Subject<Boolean>()
   constructor(private http: HttpClient) { }
@@ -33,6 +34,10 @@ export class ObjetoService {
 
   buscar(texto:string) {
     return this.http.post<Objeto[]>(`${this.url}/buscar`, texto);
+  }
+
+  reporte(){
+    return this.http.get<Objeto[]>(`${this.url}/reportecuentacategoriapersonal`);
   }
 
   listarId(id: number) {

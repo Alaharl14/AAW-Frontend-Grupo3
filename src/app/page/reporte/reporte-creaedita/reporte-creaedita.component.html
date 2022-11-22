@@ -1,5 +1,5 @@
 <div class="container">
-
+<br>
     <h1>Reporte</h1>
   
     <mat-form-field class="example-full-width">
@@ -19,10 +19,12 @@
       <input matInput required placeholder="descripcion" [(ngModel)]="reporte.descripcionReporte">
     </mat-form-field>
 
-    <mat-form-field class="example-full-width">
+    <mat-form-field appearance="fill">
       <mat-label>Fecha</mat-label>
-      <input matInput required placeholder="fecha" [(ngModel)]="reporte.fechaReporte">
-    </mat-form-field>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="fechaSeleccionada">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field >
 
     <br>
     <mat-form-field appearance="fill">

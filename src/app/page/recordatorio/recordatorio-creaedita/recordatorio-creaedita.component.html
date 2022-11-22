@@ -1,5 +1,5 @@
 <div class="container">
-
+<br>
     <h1>Recordatorio</h1>
   
     <mat-form-field class="example-full-width">
@@ -8,11 +8,13 @@
     </mat-form-field>
   
     <br>
-  
-    <mat-form-field class="example-full-width">
+
+    <mat-form-field appearance="fill">
       <mat-label>Estado</mat-label>
-      <input matInput required placeholder="estado" [(ngModel)]="recordatorio.estadoRecordatorio">
-  
+      <mat-select [(ngModel)]="recordatorio.estadoRecordatorio">
+        <mat-option value="True">True</mat-option>
+        <mat-option value="False">False</mat-option>
+      </mat-select>
     </mat-form-field>
 
     <br>
